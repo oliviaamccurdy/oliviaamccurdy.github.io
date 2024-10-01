@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+}
+
+.overlay {
+    background-image: url('images/myBoyfriendAtAnArcade.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end; /* Align the text box to the lower third */
+    position: relative;
+}
+
+.text-box {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 24px;
+    max-width: 80%;
+    margin-bottom: 5%; /* Adjust the margin to move it slightly above the bottom */
+}
+
+.text-box p {
+    margin: 0;
+}
