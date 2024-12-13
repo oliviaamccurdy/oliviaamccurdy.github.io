@@ -5,38 +5,36 @@ const toggleButton = document.getElementById('toggle-audio');
 
 // Audio captions
 const audioCaptions = [
-  "Listening to Nature in the City", // Caption for Audio 1
-  "Listening to The City in Nature" // Caption for Audio 2
+  "Start Playing: Relaxing Ambient Sounds", // Caption for Audio 1
+  "Start Playing: Upbeat Inspirational Music" // Caption for Audio 2
 ];
 
 let isAudio1Playing = true;
+let hasStarted = false;
 
-// Function to play the appropriate audio
-function playAudioForCurrentTrack() {
+// Function to play the video and the corresponding audio
+function playVideoAndAudio() {
+  video.play();
+
   if (isAudio1Playing) {
     audio2.pause();
-    audio1.currentTime = 0; // Start from the beginning
+    audio1.currentTime = 0; // Start audio 1 from the beginning
     audio1.play();
-    toggleButton.textContent = audioCaptions[0];
+    toggleButton.textContent = "Now Playing: Nature in the City";
   } else {
     audio1.pause();
-    audio2.currentTime = 0; // Start from the beginning
+    audio2.currentTime = 0; // Start audio 2 from the beginning
     audio2.play();
-    toggleButton.textContent = audioCaptions[1];
+    toggleButton.textContent = "Now Playing: The City in Nature";
   }
+
+  isAudio1Playing = !isAudio1Playing;
 }
 
-// Toggle audio when the video ends and loops
-video.addEventListener('ended', () => {
-  isAudio1Playing = !isAudio1Playing;
-  playAudioForCurrentTrack();
-});
-
-// Initialize audio on page load
-playAudioForCurrentTrack();
-
-// Optional: Allow manual toggle via button
+// Event listener for button click
 toggleButton.addEventListener('click', () => {
-  isAudio1Playing = !isAudio1Playing;
-  playAudioForCurrentTrack();
+  if (!hasStarted) {
+    hasStarted = true;
+  }
+  playVideoAndAudio();
 });
